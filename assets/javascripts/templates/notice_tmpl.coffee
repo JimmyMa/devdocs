@@ -1,8 +1,8 @@
 notice = (text) -> """<p class="_notice-text">#{text}</p>"""
 
 app.templates.singleDocNotice = (doc) ->
-  notice """ You're browsing the #{doc.fullName} documentation. To browse all docs, go to
-             <a href="//#{app.config.production_host}" target="_top">#{app.config.production_host}</a> (or press <code>esc</code>). """
+  notice """ 你正在浏览 #{doc.fullName} 文档. 到
+             <a href="//#{app.config.production_host}" target="_top">#{app.config.production_host}</a>浏览所有文档  (或者按 <code>esc</code>). """
 
 app.templates.disabledDocNotice = ->
   notice """ <strong>This documentation is disabled.</strong>

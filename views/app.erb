@@ -19,12 +19,10 @@
       <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
     </button>
     <nav class="_menu" role="navigation">
-      <h1 class="_menu-title"><a href="/" class="_menu-title-link">DevDocs</a></h1>
-      <a href="/settings" class="_menu-link">Preferences</a>
-      <a href="/offline" class="_menu-link">Offline Data</a>
-      <a href="/news" class="_menu-link">Changelog</a>
-      <a href="/help" class="_menu-link">Guide</a>
-      <a href="/about" class="_menu-link">About</a>
+      <h1 class="_menu-title"><a href="/" class="_menu-title-link">DocHub</a></h1>
+      <a href="/settings" class="_menu-link">设置</a>
+      <a href="/offline" class="_menu-link">离线文档</a>
+      <!--a href="/help" class="_menu-link">向导</a-->
     </nav>
   </header>
   <section class="_sidebar" tabindex="-1">
@@ -49,7 +47,7 @@
   </section>
   <div class="_container" role="document">
     <main class="_content" role="main">
-      <%= current_doc().encode('UTF-8', 'iso-8859-1') %>
+      <%= current_doc() %>
     </main>
   </div>
   <form class="_settings" id="settings">

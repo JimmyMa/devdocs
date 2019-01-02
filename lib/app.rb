@@ -1,4 +1,4 @@
-#encoding:utf-8
+# encoding: utf-8
 # frozen_string_literal: true
 
 require 'bundler/setup'
@@ -209,8 +209,11 @@ class App < Sinatra::Application
     end
 
     def current_doc
-      file = File.join(settings.root, 'public', settings.docs_prefix, @doc['slug'] + @path + ".html")
-      return File.read(file).encode('gbk')
+      puts @path
+      if @doc && @path != '/'
+        file = File.join(settings.root, 'public', settings.docs_prefix, @doc['slug'] + @path + ".html")
+        return File.read(file).force_encoding('utf-8')
+      end
     end
 
     def query_string_for_redirection

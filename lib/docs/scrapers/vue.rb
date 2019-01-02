@@ -21,7 +21,7 @@ module Docs
 
     version '2' do
       self.release = '2.5.16'
-      self.base_url = 'https://vuejs.org/v2/'
+      self.base_url = 'https://cn.vuejs.org/v2/'
       self.root_path = 'guide/index.html'
       self.initial_paths = %w(api/)
     end

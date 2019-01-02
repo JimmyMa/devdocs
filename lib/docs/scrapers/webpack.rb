@@ -5,7 +5,7 @@ module Docs
 
     version do
       self.release = '4.16.5'
-      self.base_url = 'https://webpack.js.org/'
+      self.base_url = 'https://www.webpackjs.com/'
       self.root_path = 'guides/'
       self.initial_paths = %w(
         concepts/
@@ -16,7 +16,7 @@ module Docs
         plugins/
       )
       self.links = {
-        home: 'https://webpack.js.org/',
+        home: 'https://www.webpackjs.com/',
         code: 'https://github.com/webpack/webpack'
       }
 

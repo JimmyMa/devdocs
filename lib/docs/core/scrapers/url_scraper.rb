@@ -41,6 +41,7 @@ module Docs
     def request_options
       options = { params: self.class.params, headers: self.class.headers }
       options[:accept_encoding] = 'gzip' if self.class.force_gzip
+      options[:ssl_verifypeer ] = false
       options
     end
 

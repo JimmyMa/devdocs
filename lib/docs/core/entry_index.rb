@@ -50,6 +50,7 @@ module Docs
     end
 
     def types_as_json
+      puts @types.values
       @types.values.sort! { |a, b| sort_fn(a.name, b.name) }.map(&:as_json)
     end
 

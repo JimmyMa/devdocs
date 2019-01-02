@@ -8,7 +8,8 @@ module Docs
     end
 
     def slug
-      name.parameterize
+      #name.parameterize
+      name
     end
 
     def as_json

@@ -34,7 +34,7 @@ module Docs
 
     version '8 LTS' do
       self.release = '8.12.0'
-      self.base_url = 'https://nodejs.org/dist/latest-v8.x/docs/api/'
+      self.base_url = 'https://www.nodeapp.cn/'
     end
 
     version '6 LTS' do

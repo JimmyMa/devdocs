@@ -48,7 +48,7 @@ group :test do
   gem 'rack-test', require: false
 end
 
-if ENV['SELENIUM'] == '1'
+#if ENV['SELENIUM'] == '1'
   gem 'capybara'
   gem 'selenium-webdriver'
-end
+#end

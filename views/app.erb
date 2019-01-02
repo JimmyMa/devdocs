@@ -29,15 +29,28 @@
   </header>
   <section class="_sidebar" tabindex="-1">
     <div class="_list" role="navigation">
-      <% unless @doc %>
+      <%= App.docs %>
+      <% # unless App.docs %>
       <% App.docs.each do |slug, doc| %>
       <a href="/<%= slug %>/" class="_list-item"><%= doc['full_name'] %></a>
+      <div class="_list _list-sub">
+      <% doc_index_types(slug).each do |type| %>
+      <a href="/<%=  slug + '-' + type['slug'] %>/" class="_list-item _list-dir" data-slug="<%= type['slug'] %>" tabindex="-1"><svg class="_list-arrow"><use xlink:href="#icon-dir"></use></svg><span class="_list-count">36</span><span class="_list-text"><%= type['slug'] %></span></a>
+      <div class="_list _list-sub">
+      <% doc_index_entries(slug, type['slug']).each do |entry| %>
+        <a href="/<%= slug + '/' + entry['path'] %>" class="_list-item _list-hover" tabindex="-1"><%= entry['name'] %></a>
       <% end %>
+      </div>
       <% end %>
+      </div>
+      <% end %>
+      <% # end %>
     </div>
   </section>
   <div class="_container" role="document">
-    <main class="_content _content-loading" role="main"></main>
+    <main class="_content" role="main">
+      <%= current_doc().encode('UTF-8', 'iso-8859-1') %>
+    </main>
   </div>
   <form class="_settings" id="settings">
     <div class="_header">

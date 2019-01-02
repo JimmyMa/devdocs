@@ -1,3 +1,4 @@
+#encoding:utf-8
 # frozen_string_literal: true
 
 require 'bundler/setup'
@@ -149,6 +150,7 @@ class App < Sinatra::Application
     end
 
     def docs
+      puts @docs
       @docs ||= begin
         cookie = memoized_cookies['docs']
 
@@ -169,6 +171,24 @@ class App < Sinatra::Application
       end
     end
 
+    
+    def doc_index_entries(slug, type)
+      file = File.join(settings.root, 'public', settings.docs_prefix, slug, 'index.json')
+      file = File.read(file)
+
+      # puts JSON.parse(file)['entries']
+      entries = JSON.parse(file)['entries'].select { |entry|
+        entry['type'] == type
+      }
+      entries
+    end
+
+    def doc_index_types(slug)
+      file = File.join(settings.root, 'public', settings.docs_prefix, slug, 'index.json')
+      file = File.read(file)
+      JSON.parse(file)['types']
+    end
+
     def user_has_docs?(slug)
       docs.include?(slug) || begin
         slug = "#{slug}~"
@@ -186,6 +206,11 @@ class App < Sinatra::Application
 
     def doc_index_page?
       @doc && (request.path == "/#{@doc['slug']}/" || request.path == "/#{@doc['slug_without_version']}/")
+    end
+
+    def current_doc
+      file = File.join(settings.root, 'public', settings.docs_prefix, @doc['slug'] + @path + ".html")
+      return File.read(file).encode('gbk')
     end
 
     def query_string_for_redirection
@@ -227,6 +252,7 @@ class App < Sinatra::Application
 
     def supports_js_redirection?
       browser.modern? && !memoized_cookies.empty?
+      false
     end
   end
 
@@ -353,6 +379,7 @@ class App < Sinatra::Application
   }
 
   get %r{/([\w~\.%]+)(\-[\w\-]+)?(/.*)?} do |doc, type, rest|
+    puts doc, type, rest
     doc.sub! '%7E', '~'
 
     if DOC_REDIRECTS.key?(doc)
@@ -390,6 +417,8 @@ class App < Sinatra::Application
     end
 
     return 404 unless @doc = find_doc(doc)
+    @path = rest.split('#')[0] if rest
+    puts @doc
 
     if rest.nil?
       redirect "/#{doc}#{type}/#{query_string_for_redirection}"

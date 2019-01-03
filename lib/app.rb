@@ -177,16 +177,20 @@ class App < Sinatra::Application
       file = File.read(file)
 
       # puts JSON.parse(file)['entries']
-      entries = JSON.parse(file)['entries'].select { |entry|
+      entries = @doc_indexes[slug]['entries'].select { |entry|
         entry['type'] == type
       }
       entries
     end
 
     def doc_index_types(slug)
-      file = File.join(settings.root, 'public', settings.docs_prefix, slug, 'index.json')
-      file = File.read(file)
-      JSON.parse(file)['types']
+      @doc_indexes ||= {}
+      @doc_indexes[slug] ||= begin
+        file = File.join(settings.root, 'public', settings.docs_prefix, slug, 'index.json')
+        file = File.read(file)
+        JSON.parse(file)
+      end
+      @doc_indexes[slug]['types']
     end
 
     def user_has_docs?(slug)

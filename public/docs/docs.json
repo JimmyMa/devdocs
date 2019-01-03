@@ -3,8 +3,8 @@
     "name": "CSS",
     "slug": "css",
     "type": "mdn",
-    "mtime": 1543099045,
-    "db_size": 12415944
+    "mtime": 1546485844,
+    "db_size": 10771175
   },
   {
     "name": "DOM",
@@ -24,8 +24,8 @@
     "name": "HTML",
     "slug": "html",
     "type": "mdn",
-    "mtime": 1543097764,
-    "db_size": 4141596
+    "mtime": 1546485271,
+    "db_size": 3353838
   },
   {
     "name": "HTTP",
@@ -42,19 +42,6 @@
     "db_size": 6462141
   },
   {
-    "name": "Node.js",
-    "slug": "node~8_lts",
-    "type": "node",
-    "links": {
-      "home": "https://nodejs.org/",
-      "code": "https://github.com/nodejs/node"
-    },
-    "version": "8 LTS",
-    "release": "8.12.0",
-    "mtime": 1546414231,
-    "db_size": 1986417
-  },
-  {
     "name": "Vue.js",
     "slug": "vue~2",
     "type": "vue",
@@ -64,7 +51,7 @@
     },
     "version": "2",
     "release": "2.5.16",
-    "mtime": 1546260672,
-    "db_size": 554048
+    "mtime": 1546490036,
+    "db_size": 831805
   }
 ]

@@ -40,6 +40,7 @@ module Docs
     end
 
     def fix_url(url)
+      #puts url
       if context[:redirections]
         url = URL.parse(url)
         path = url.path.downcase
@@ -54,8 +55,11 @@ module Docs
         url = URL.parse(url)
         path = subpath_to(url)
 
+	#puts path
+
         if context[:replace_paths].key?(path)
           url.path = url.path.sub %r[#{path}\z], context[:replace_paths][path]
+	  #puts url
           return url
         end
       end

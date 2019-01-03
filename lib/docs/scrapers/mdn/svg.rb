@@ -4,7 +4,7 @@ module Docs
     prepend FixRedirectionsBehavior
 
     self.name = 'SVG'
-    self.base_url = 'https://developer.mozilla.org/en-US/docs/Web/SVG'
+    self.base_url = 'https://developer.mozilla.org/zh-CN/docs/Web/SVG'
 
     html_filters.push 'svg/clean_html', 'svg/entries', 'title'
 
@@ -23,8 +23,8 @@ module Docs
     options[:skip] = %w(/Compatibility_sources /FAQ)
 
     options[:fix_urls] = ->(url) do
-      url.sub! 'https://developer.mozilla.org/en-US/Web/SVG', Svg.base_url
-      url.sub! 'https://developer.mozilla.org/en-US/docs/SVG', Svg.base_url
+      url.sub! 'https://developer.mozilla.org/zh-CN/Web/SVG', Svg.base_url
+      url.sub! 'https://developer.mozilla.org/zh-CN/docs/SVG', Svg.base_url
       url.sub! 'https://developer.mozilla.org/en/SVG', Svg.base_url
       url
     end

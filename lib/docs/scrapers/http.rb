@@ -3,7 +3,7 @@ module Docs
     include MultipleBaseUrls
 
     self.name = 'HTTP'
-    self.base_urls = ['https://developer.mozilla.org/en-US/docs/Web/HTTP', 'https://tools.ietf.org/html/']
+    self.base_urls = ['https://developer.mozilla.org/zh-CN/docs/Web/HTTP', 'https://tools.ietf.org/html/']
 
     html_filters.push 'http/clean_html', 'http/entries', 'title'
 
@@ -26,7 +26,7 @@ module Docs
     end
 
     def initial_urls
-      %w(https://developer.mozilla.org/en-US/docs/Web/HTTP
+      %w(https://developer.mozilla.org/zh-CN/docs/Web/HTTP
          https://tools.ietf.org/html/rfc2616
          https://tools.ietf.org/html/rfc4918
          https://tools.ietf.org/html/rfc7230

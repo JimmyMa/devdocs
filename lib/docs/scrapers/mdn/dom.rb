@@ -4,7 +4,7 @@ module Docs
     prepend FixRedirectionsBehavior
 
     self.name = 'DOM'
-    self.base_url = 'https://developer.mozilla.org/en-US/docs/Web/API'
+    self.base_url = 'https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model'
 
     html_filters.push 'dom/clean_html', 'dom/entries', 'title'
 
@@ -69,8 +69,8 @@ module Docs
 
     options[:fix_urls] = ->(url) do
       return if url.include?('_') || url.include?('?')
-      url.sub! 'https://developer.mozilla.org/en-US/docs/DOM/', "#{Dom.base_url}/"
-      url.sub! 'https://developer.mozilla.org/en/DOM/',         "#{Dom.base_url}/"
+      url.sub! 'https://developer.mozilla.org/zh-CN/docs/DOM/', "#{Dom.base_url}/"
+      url.sub! 'https://developer.mozilla.org/zh/DOM/',         "#{Dom.base_url}/"
       url.sub! 'https://developer.mozilla.org/Web/API/',        "#{Dom.base_url}/"
       url.sub! "#{Dom.base_url}/Console",                       "#{Dom.base_url}/console"
       url.sub! "#{Dom.base_url}/Document\/",                    "#{Dom.base_url}/document\/"

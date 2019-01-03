@@ -4,7 +4,7 @@ module Docs
     prepend FixRedirectionsBehavior
 
     self.name = 'JavaScript'
-    self.base_url = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference'
+    self.base_url = 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference'
 
     html_filters.push 'javascript/clean_html', 'javascript/entries', 'title'
 
@@ -35,7 +35,7 @@ module Docs
     }
 
     options[:fix_urls] = ->(url) do
-      url.sub! 'https://developer.mozilla.org/en-US/docs/JavaScript/Reference',  Javascript.base_url
+      url.sub! 'https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference',  Javascript.base_url
       url.sub! 'https://developer.mozilla.org/en/JavaScript/Reference',          Javascript.base_url
       url.sub! 'https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference', Javascript.base_url
       url.sub! 'https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference', Javascript.base_url

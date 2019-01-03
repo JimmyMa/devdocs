@@ -1,7 +1,7 @@
 module Docs
   class Css < Mdn
     self.name = 'CSS'
-    self.base_url = 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+    self.base_url = 'https://developer.mozilla.org/zh-CN/docs/Web/CSS'
     self.root_path = '/Reference'
 
     html_filters.push 'css/clean_html', 'css/entries', 'title'
@@ -26,7 +26,7 @@ module Docs
     }
 
     options[:fix_urls] = ->(url) do
-      url.sub! %r{https://developer\.mozilla\.org/en\-US/docs/CSS/([\w\-@:])}, "#{Css.base_url}/\\1"
+      url.sub! %r{https://developer\.mozilla\.org/zh\-CN/docs/CSS/([\w\-@:])}, "#{Css.base_url}/\\1"
       url.sub! '%3A', ':'
       url.sub! '%40', '@'
       url

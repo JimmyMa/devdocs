@@ -31,6 +31,13 @@ module Docs
   class DocNotFound < NameError; end
   class SetupError < StandardError; end
 
+  trap 'TTIN' do
+    Thread.list.each do |thread|
+      puts "Thread TID-#{thread.object_id.to_s(36)}"
+      puts thread.backtrace.join("n")
+    end
+  end
+
   def self.all
     Dir["#{root_path}/docs/scrapers/**/*.rb"].
       map { |file| File.basename(file, '.rb') }.

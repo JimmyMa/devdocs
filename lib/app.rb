@@ -16,7 +16,7 @@ class App < Sinatra::Application
     use Rack::SslEnforcer, only_environments: ['production', 'test'], hsts: true, force_secure_cookies: false
 
     set :sentry_dsn, ENV['SENTRY_DSN']
-    set :protection, except: [:frame_options, :xss_header]
+    set :protection, except: [:frame_options, :xss_header, :json_csrf]
 
     set :root, Pathname.new(File.expand_path('../..', __FILE__))
     set :sprockets, Sprockets::Environment.new(root)

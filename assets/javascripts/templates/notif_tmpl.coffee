@@ -58,13 +58,3 @@ app.templates.notifUpdates = (docs, disabledDocs) ->
     html += '</ul></div>'
 
   notif 'Updates', "#{html}</div>"
-
-app.templates.notifShare = ->
-  textNotif """ Hi there! """,
-            """ Like DevDocs? Help us reach more developers by sharing the link with your friends on
-                <a href="https://out.devdocs.io/s/tw" target="_blank" rel="noopener">Twitter</a>, <a href="https://out.devdocs.io/s/fb" target="_blank" rel="noopener">Facebook</a>,
-                <a href="https://out.devdocs.io/s/re" target="_blank" rel="noopener">Reddit</a>, etc.<br>Thanks :) """
-
-app.templates.notifUpdateDocs = ->
-  textNotif """ Documentation updates available. """,
-            """ <a href="/offline">Install them</a> as soon as possible to avoid broken pages. """

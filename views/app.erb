@@ -27,22 +27,21 @@
   </header>
   <section class="_sidebar" tabindex="-1">
     <div class="_list" role="navigation">
-      <%= App.docs %>
-      <% # unless App.docs %>
-      <% App.docs.each do |slug, doc| %>
-      <a href="/<%= slug %>/" class="_list-item"><%= doc['full_name'] %></a>
+      <% if not @doc.nil? %>
+
+      <a href="/<%= @doc['slug'] %>/" class="_list-item"><%= @doc['full_name'] %></a>
       <div class="_list _list-sub">
-      <% doc_index_types(slug).each do |type| %>
-      <a href="/<%=  slug + '-' + type['slug'] %>/" class="_list-item _list-dir" data-slug="<%= type['slug'] %>" tabindex="-1"><svg class="_list-arrow"><use xlink:href="#icon-dir"></use></svg><span class="_list-count">36</span><span class="_list-text"><%= type['slug'] %></span></a>
+      <% doc_index_types(@doc['slug']).each do |type| %>
+      <a href="/<%=  @doc['slug'] + '-' + type['slug'] %>/" class="_list-item _list-dir" data-slug="<%= type['slug'] %>" tabindex="-1"><svg class="_list-arrow"><use xlink:href="#icon-dir"></use></svg><span class="_list-count">36</span><span class="_list-text"><%= type['slug'] %></span></a>
       <div class="_list _list-sub">
-      <% doc_index_entries(slug, type['slug']).each do |entry| %>
-        <a href="/<%= slug + '/' + entry['path'] %>" class="_list-item _list-hover" tabindex="-1"><%= entry['name'] %></a>
+      <% doc_index_entries(@doc['slug'], type['name']).each do |entry| %>
+        <a href="/<%= @doc['slug'] + '/' + entry['path'] %>" class="_list-item _list-hover" tabindex="-1"><%= entry['name'] %></a>
       <% end %>
       </div>
       <% end %>
       </div>
+
       <% end %>
-      <% # end %>
     </div>
   </section>
   <div class="_container" role="document">
